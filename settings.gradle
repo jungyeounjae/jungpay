@@ -1,0 +1,2 @@
+rootProject.name = 'JungPay'  // ✅ pluginManagement 블록 아래에 위치
+include 'membership-service'
