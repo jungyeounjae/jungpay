@@ -3,6 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/JungPay.iml" filepath="$PROJECT_DIR$/.idea/JungPay.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JungPay.main.iml" filepath="$PROJECT_DIR$/.idea/modules/JungPay.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/membership-service/JungPay.membership-service.iml" filepath="$PROJECT_DIR$/.idea/modules/membership-service/JungPay.membership-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/membership-service/JungPay.membership-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/membership-service/JungPay.membership-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/membership-service/JungPay.membership-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/membership-service/JungPay.membership-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JungPay.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JungPay.test.iml" />
+>>>>>>> master
     </modules>
   </component>
 </project>
