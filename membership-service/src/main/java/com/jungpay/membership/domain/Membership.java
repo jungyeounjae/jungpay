@@ -13,23 +13,34 @@ public class Membership {
      * The baseline balance of the account. This was the balance of the account before the first
      * activity in the activityWindow.
      */
-    @Getter private final String membershipId;
-    @Getter private final String name;
-    @Getter private final String email;
-    @Getter private final String address;
-    @Getter private final boolean isValid;
-    @Getter private final String aggregateIdentifier;
+    @Getter
+    private final String membershipId;
+    @Getter
+    private final String name;
+    @Getter
+    private final String email;
+    @Getter
+    private final String address;
+    @Getter
+    private final boolean isValid;
+    @Getter
+    private final boolean isCorp;
 
     public static Membership generateMember(
-            MembershipId membershipId, MembershipName membershipName, MembershipEmail membershipEmail, MembershipAddress membershipAddress, MembershipIsValid membershipIsValid,
-            MembershipAggregateIdentifier membershipAggregateIdentifier) {
+            MembershipId membershipId,
+            MembershipName membershipName,
+            MembershipEmail membershipEmail,
+            MembershipAddress membershipAddress,
+            MembershipIsValid membershipIsValid,
+            MembershipISCorp membershipIsCorp
+    ) {
         return new Membership(
                 membershipId.membershipId,
                 membershipName.nameValue,
                 membershipEmail.emailValue,
                 membershipAddress.addressValue,
                 membershipIsValid.isValidValue,
-                membershipAggregateIdentifier.aggregateIdentifier
+                membershipIsCorp.isCorpValue
         );
     }
 
@@ -38,7 +49,8 @@ public class Membership {
         public MembershipId(String value) {
             this.membershipId = value;
         }
-        String membershipId ;
+
+        String membershipId;
     }
 
     @Value
@@ -49,11 +61,13 @@ public class Membership {
 
         String nameValue;
     }
+
     @Value
     public static class MembershipEmail {
         public MembershipEmail(String value) {
             this.emailValue = value;
         }
+
         String emailValue;
     }
 
@@ -62,6 +76,7 @@ public class Membership {
         public MembershipAddress(String value) {
             this.addressValue = value;
         }
+
         String addressValue;
     }
 
@@ -70,14 +85,16 @@ public class Membership {
         public MembershipIsValid(boolean value) {
             this.isValidValue = value;
         }
+
         boolean isValidValue;
     }
 
     @Value
-    public static class MembershipAggregateIdentifier {
-        public MembershipAggregateIdentifier(String value) {
-            this.aggregateIdentifier = value;
+    public static class MembershipISCorp {
+        public MembershipISCorp(boolean value) {
+            this.isCorpValue = value;
         }
-        String aggregateIdentifier;
+
+        boolean isCorpValue;
     }
 }

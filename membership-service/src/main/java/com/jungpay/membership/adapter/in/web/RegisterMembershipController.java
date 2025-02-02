@@ -1,19 +1,34 @@
 package com.jungpay.membership.adapter.in.web;
 
 
+import com.jungpay.membership.application.port.in.RegisterMembershipCommand;
+import com.jungpay.membership.application.port.in.RegisterMembershipUseCase;
+import com.jungpay.membership.common.WebAdapter;
+import com.jungpay.membership.domain.Membership;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@WebAdapter
 @RestController
 @RequiredArgsConstructor
 public class RegisterMembershipController
 {
 
-    // http로의 요청과의 첫 상호작용을 하는, 부외부에서 내부로 들어오는 어댑터라고 할 수 있다.
-    // 인바윤둟 들어오는 웹 형식의 어댑터 == 컨트롤러
-    @GetMapping(path ="/test")
-    void test() {
-        System.out.println("hello!");
+    private final RegisterMembershipUseCase registerMembershipUseCase;
+    @PostMapping(path ="/membership/register")
+    Membership registerMembership(@RequestBody RegisterMembershipRequest request){
+        // RegisterMembershipRequest
+        // name, address, email
+        RegisterMembershipCommand command = RegisterMembershipCommand.builder()
+                .name(request.getName())
+                .address(request.getAddress())
+                .email(request.getMail())
+                .isValid(true)
+                .isCorp(request.isCorp())
+                .build();
+
+        return registerMembershipUseCase.registerMembership(command);
     }
 }
