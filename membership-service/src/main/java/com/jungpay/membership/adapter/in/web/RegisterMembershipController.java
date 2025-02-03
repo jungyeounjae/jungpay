@@ -19,8 +19,7 @@ public class RegisterMembershipController
     private final RegisterMembershipUseCase registerMembershipUseCase;
     @PostMapping(path ="/membership/register")
     Membership registerMembership(@RequestBody RegisterMembershipRequest request){
-        // RegisterMembershipRequest
-        // name, address, email
+//        System.out.println("Received Request: " + request);
         RegisterMembershipCommand command = RegisterMembershipCommand.builder()
                 .name(request.getName())
                 .address(request.getAddress())
